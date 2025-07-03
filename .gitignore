@@ -1,0 +1,9 @@
+*.out
+*.err
+__pycache__/
+*.pyc
+generated_heatmaps/
+keypoint_heatmaps/
+training_heatmaps/
+ctcdecode/
+
