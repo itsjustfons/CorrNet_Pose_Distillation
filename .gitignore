@@ -1,9 +1,74 @@
-*.out
-*.err
+/graphing
 __pycache__/
 *.pyc
 generated_heatmaps/
 keypoint_heatmaps/
 training_heatmaps/
 ctcdecode/
+PCK_BLEU_study/
+coco_wholebody/
+Corrnet/
+pose_lengths.tsv
+plot_loss2.py
+single_vid.txt
+visualize_loss_val.py
+visualize_loss.py
 
+# ========================
+# Python
+# ========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# ========================
+# Environments
+# ========================
+venv/
+.env/
+conda-env/
+.vscode/
+
+# ========================
+# PyTorch / ML
+# ========================
+*.pt
+*.pth
+checkpoints/
+weights/
+
+# ========================
+# Images / Plots / Artifacts
+# ========================
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.gif
+
+# Aggregated output folders
+training_heatmaps_aggregated.png/
+training_heatmaps_aggregated_dev.png/
+PCK_BLEU_study/
+
+# ========================
+# Data
+# ========================
+data/
+datasets/
+coco_wholebody/
+*.pkl
+/CorrNet/keypoints_*/
+/CorrNet/pose_*/
+/CorrNet/single_vid/
+/CorrNet/work_dir/*
+
+
+# ========================
+# Logs
+# ========================
+*.log
+*.err
+*.out

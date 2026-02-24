@@ -2,7 +2,7 @@
 
 #PJM -L rscgrp=cx-share
 #PJM -L gpu=1
-#PJM -L elapse=150:00:00
+#PJM -L elapse=168:00:00
 #PJM -L jobenv=singularity
 #PJM -j
 

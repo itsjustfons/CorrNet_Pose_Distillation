@@ -3,5 +3,4 @@ source /home/z40575r/anaconda3/bin/activate
 conda init bash
 conda activate corrnet
 
-python /data/group1/z40575r/CorrNet_pose_distillation/CorrNet/main.py --config /data/group1/z40575r/CorrNet_pose_distillation/CorrNet/configs/baseline3.yaml --device 0
-
+python /data/group1/z40575r/CorrNet_pose_distillation/CorrNet/main.py --config /data/group1/z40575r/CorrNet_pose_distillation/CorrNet/configs/keypoint_regression_img_v18_max16_bs8.yaml --device 0
