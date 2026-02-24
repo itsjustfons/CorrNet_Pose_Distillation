@@ -1,0 +1,7 @@
+*.out
+*.err
+__pycache__/
+*.pyc
+work_dir/
+weight_map_generation/
+

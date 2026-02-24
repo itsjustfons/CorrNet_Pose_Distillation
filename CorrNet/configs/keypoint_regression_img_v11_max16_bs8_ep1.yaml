@@ -1,0 +1,60 @@
+#Keypoint regression experiment. Img based
+#Loss function: MPJPE() and MSE(confidence) weighted loss
+#128 frames per video using ALL frames
+#3 channel output kepoint head
+#Added sigmoid function to output of confidence layer
+#Added ReLU function to output of xy layer
+
+feeder: dataset.dataloader_video3.BaseFeeder
+phase: train
+dataset: phoenix2014
+# dataset: phoenix14-si5
+num_epoch: 40
+work_dir: ./work_dir/keypoint_regression_img_grad_accum_v11_max16_bs8_a1_b1/
+batch_size: 8
+random_seed: 0
+test_batch_size: 1
+num_worker: 0
+device: 0,1
+log_interval: 10000
+eval_interval: 1
+save_interval: 1
+# python in default
+evaluate_tool: python
+loss_weights:
+  SeqCTC: 1.0
+  # VAC
+  ConvCTC: 1.0
+  Dist: 25.0
+  alpha: 1.0
+  beta: 1.0
+load_weights: '/data/group1/z40575r/CorrNet_pose_distillation/CorrNet/work_dir/keypoint_regression_img_grad_accum_v11_max16_bs8_a1_b1/epoch0_step140000.pt'
+
+optimizer_args:
+  optimizer: Adam
+  base_lr: 0.0001
+  step: [ 20, 35]
+  learning_ratio: 1
+  weight_decay: 0.0001
+  start_epoch: 1
+  nesterov: False
+
+feeder_args:
+  mode: 'train'
+  datatype: 'video'
+  num_gloss: -1
+  drop_ratio: 1.0
+  frame_interval: 1
+  image_scale: 1.0  # 0-1 represents ratio, >1 represents absolute value
+  input_size: 224
+
+model: slr_network_2head_v2.SLRModel
+decode_mode: beam
+model_args:
+  num_classes: 1296
+  c2d_type: resnet18 #resnet18, mobilenet_v2, squeezenet1_1, shufflenet_v2_x1_0, efficientnet_b1, mnasnet1_0, regnet_y_800mf, vgg16_bn, vgg11_bn, regnet_x_800mf, regnet_x_400mf, densenet121, regnet_y_1_6gf
+  conv_type: 9
+  use_bn: 1
+  # SMKD
+  share_classifier: True
+  weight_norm: True
