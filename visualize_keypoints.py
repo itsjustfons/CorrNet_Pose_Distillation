@@ -16,7 +16,8 @@ from tqdm import tqdm
 #with open('/data/group1/z40575r/CorrNet_pose_distillation/CorrNet/keypoints_pose_256x256_1_best/XySXQIrwypg-00-00-29.533-00-00-34.966.pkl', 'rb') as f:
 # data/group1/z40575r/CorrNet_pose_distillation/CorrNet/keypoints_regression_img2/XySXQIrwypg-00-00-29.533-00-00-34.966.pkl
 
-with open('//data/group1/z40575r/CorrNet_pose_distillation/CorrNet/keypoints_pose_regression_img_v13_a1_b1_40k_ep3/XySXQIrwypg-00-00-29.533-00-00-34.966.pkl', 'rb') as f:
+pose_path = '//data/group1/z40575r/CorrNet_pose_distillation/CorrNet/keypoints_pose_regression_img_v13_a1_b1_40k_ep3/XySXQIrwypg-00-00-29.533-00-00-34.966.pkl'
+with open(pose_path, 'rb') as f:
     keypoints = pickle.load(f)  # shape: (195, 133, 3)
 
 if keypoints.shape[-1] == 2:
@@ -34,7 +35,8 @@ frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
 # --- Step 3: Create a VideoWriter for the output ---
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter('non_sequential_model_1.mp4', fourcc, fps, (width, height))
+out_file_name = 'non_sequential_model_1.mp4'
+out = cv2.VideoWriter(out_file_name, fourcc, fps, (width, height))
 
 
 # --- Optional: Define skeleton and color (you can customize these) ---

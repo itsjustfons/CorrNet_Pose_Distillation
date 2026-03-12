@@ -201,7 +201,7 @@ def main():
         'args': args,
     }
 
-    all_samples = load_sample_names('../valid_test_vids.txt') #original code. Uncomment if not doing the MAC calculations
+    all_samples = load_sample_names('../valid_test_vids.txt')
     # all_samples = all_samples[:5]
     total_samples = len(all_samples)
     print('Total samples:', total_samples)
