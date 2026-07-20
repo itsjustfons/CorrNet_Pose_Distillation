@@ -129,11 +129,11 @@ This evaluation measures how well the predicted pose sequences preserve the ling
 
 ### Model Size and Inference Speed
 
-| Model | Backbone | Model Size | Inference Time (per frame) | Relative Speed |
+| Model | Backbone | Model Size (Parameters)| Inference Time (per frame) | Relative Speed |
 |------|-----------|------------:|----------------------------:|---------------:|
-| **Teacher (MMPose HRNet)** | HRNet | XX MB | XX ms | 1× |
-| **Student (Non-Sequential)** | ResNet-18 | XX MB | XX ms | **30× faster** |
-| **Student (Sequential)** | ResNet-18 | XX MB | XX ms | **30× faster** |
+| **Teacher (MMPose HRNet)** | HRNet | 63.6 M | 90.5 ms | 1× |
+| **Student (Non-Sequential)** | ResNet-18 | 33.7 M | 3 ms | **30× faster** |
+| **Student (Sequential)** | ResNet-18 | 40.8 M | 10.5 ms | **30× faster** |
 
 ### Key Takeaway
 
