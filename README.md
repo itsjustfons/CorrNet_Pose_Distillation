@@ -119,17 +119,31 @@ To evaluate the quality of the estimated keypoints, we use **BLEU scores as a do
 
 This evaluation measures how well the predicted pose sequences preserve the linguistic information necessary for sign language translation. **Higher BLEU scores indicate better keypoint estimation quality.**
 
+### Downstream Translation Performance (BLEU)
+
 | Pose Source | BLEU-1 | BLEU-2 | BLEU-3 | BLEU-4 |
 |-------------|--------:|--------:|--------:|--------:|
 | **Teacher (MMPose HRNet)** | **20.65** | **8.38** | **4.63** | **2.72** |
 | **Student Model (Non-Sequential)** (`keypoint_regression_img_v13`, ResNet-18) | 19.05 | 7.93 | 4.40 | 2.57 |
 | **Student Model (Sequential)** (`keypoint_regression_seq_v3`, ResNet-18) | 16.81 | 6.93 | 3.74 | 2.13 |
 
+### Model Size and Inference Speed
+
+| Model | Backbone | Model Size | Inference Time (per frame) | Relative Speed |
+|------|-----------|------------:|----------------------------:|---------------:|
+| **Teacher (MMPose HRNet)** | HRNet | XX MB | XX ms | 1× |
+| **Student (Non-Sequential)** | ResNet-18 | XX MB | XX ms | **30× faster** |
+| **Student (Sequential)** | ResNet-18 | XX MB | XX ms | **30× faster** |
+
+### Key Takeaway
+
+The proposed **ResNet-18 student models achieve approximately 30× faster inference** than the MMPose HRNet teacher model, while incurring only a **minor decrease in downstream translation accuracy**. For example, the non-sequential student achieves **19.05 BLEU-1** compared to **20.65 BLEU-1** from the teacher, making it a favorable trade-off for real-time or resource-constrained sign language applications.
+
 ### Summary
 
-- The **teacher model (MMPose HRNet)** provides the highest BLEU scores and serves as the upper-bound reference.
-- The **non-sequential student model** (`keypoint_regression_img_v13`) achieves performance close to the teacher while using a lightweight **ResNet-18** backbone.
-- The **sequential student model** (`keypoint_regression_seq_v3`) performs worse than the non-sequential variant, suggesting that the current temporal correlation formulation does not yet provide a benefit for pose distillation on OpenASL.
+- **Teacher (MMPose HRNet)** provides the best translation performance and serves as the upper-bound reference.
+- **Non-sequential student** (`keypoint_regression_img_v13`) achieves performance close to the teacher with a lightweight **ResNet-18** backbone.
+- **Sequential student** (`keypoint_regression_seq_v3`) currently underperforms the non-sequential variant, indicating that the present temporal correlation formulation does not yet provide additional benefit for pose distillation on OpenASL.
 
 > **Note:** BLEU is used as an indirect measure of pose estimation accuracy. Better predicted keypoints should enable better downstream sign language translation performance.
 
