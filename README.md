@@ -1,4 +1,13 @@
+## Abstract
+
+Sign Language Translation (SLT) aims to bridge communication gaps between hearing and hard-of-hearing individuals through automated translation of sign language videos. However, modern SLT pipelines often rely on computationally expensive pose estimation models, limiting their use in real-time applications.
+
+This thesis explores **knowledge distillation for efficient pose estimation in SLT**, training a lightweight student model to approximate the performance of larger state-of-the-art models while reducing inference cost. The goal is to preserve translation-relevant pose accuracy while improving deployment efficiency.
+
+Results show that the distilled model achieves a comparable SLT performance, obtaining a **BLEU-1 score of 19.05** compared to **20.65** from the larger teacher model, while achieving approximately **30× faster per-frame inference**. These results demonstrate the potential of knowledge distillation for building faster and more practical real-time sign language translation systems.
+
 # CorrNet Pose Distillation
+
 This Repo is bsed on CorrNet 2023 (CVPR 2023) [[paper]](https://arxiv.org/abs/2303.03202)
 
 
